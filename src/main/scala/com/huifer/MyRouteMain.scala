@@ -8,7 +8,7 @@ import org.apache.camel.scala.dsl.builder.RouteBuilderSupport
 object MyRouteMain extends RouteBuilderSupport {
 
   def main(args: Array[String]): Unit = {
-    println("hello")
+    println("hello-world")
   }
 }
 
