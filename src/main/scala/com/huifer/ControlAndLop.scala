@@ -20,6 +20,11 @@ object ControlAndLop {
     exc()
   }
 
+  /**
+   * 异常捕捉
+   *
+   * @return
+   */
   def exc() = {
     val i = 1
     try {
@@ -36,11 +41,19 @@ object ControlAndLop {
     }
   }
 
+  /**
+   * 默认参数
+   *
+   * @param str
+   * @param st
+   */
   def dec(str: String = "a", st: String = "b") = {
     println(str + st)
   }
 
-
+  /**
+   * 斐波那契数列运行体
+   */
   private def fib = {
     val d = abs(-1)
     println(d)
@@ -80,7 +93,9 @@ object ControlAndLop {
     }
   }
 
-
+  /**
+   * scala 没有break和continue处理方案
+   */
   private def breakAndContinue = {
     var ls = new util.ArrayList[Int]()
     // break
@@ -152,7 +167,7 @@ object ControlAndLop {
       println("is false")
     }
 
-
+    // 代码块有返回值
     var ic = {
       var b = 0
       if (b == 0) {

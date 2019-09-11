@@ -1,31 +1,34 @@
 package com.huifer
 
-import java.util
-
 import scala.collection.mutable.ArrayBuffer
 
 /**
  * 数组
  */
 object ArrayDemo {
+
   def main(args: Array[String]): Unit = {
     //    arrayInt
     //    listBuffer
 
+    // 数组的增加删除
     val nums = ArrayBuffer[Int]()
     for (i <- 1 to 10) {
       nums += i
     }
 
     for (e <- nums) {
-      if(e%2==0)  {
-        nums -=e
+      if (e % 2 == 0) {
+        nums -= e
       }
     }
     print()
 
   }
 
+  /**
+   * 不定长数组
+   */
   private def listBuffer = {
     val nums = ArrayBuffer[Int]()
     for (i <- 1 to 10) {
@@ -34,7 +37,7 @@ object ArrayDemo {
     println()
 
     // 普通的for
-    for (i<-1 to nums.size){
+    for (i <- 1 to nums.size) {
       print(nums(i))
     }
 
@@ -56,6 +59,9 @@ object ArrayDemo {
     print()
   }
 
+  /**
+   * 定长数组操作
+   */
   private def arrayInt = {
     // 初始化数组长度10,类型int
     val nums = new Array[Int](10)
