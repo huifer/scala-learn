@@ -12,3 +12,8 @@ end_of_line = crlf
 
 [{*.tld, *.xslt, *.jhm, *.rng, *.bpmn, *.pom, *.ant, *.xul, *.xsl, *.xsd, *.jnlp, *.xml, *.xjb, *.wadl, *.plan, *.jrxml, *.fxml, *.wsdl, *.wsdd}]
 tab_width = 2
+
+
+[{package.json,.travis.yml}]
+indent_style = space
+indent_size = 2
