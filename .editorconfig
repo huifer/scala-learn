@@ -1,0 +1,14 @@
+root = true
+
+[*]
+tab_width = 4
+charset = utf-8
+end_of_line = crlf
+[*.java]
+
+[*.scala]
+
+[{*.kts,*.kt,*.gradle.kts}]
+
+[{*.tld, *.xslt, *.jhm, *.rng, *.bpmn, *.pom, *.ant, *.xul, *.xsl, *.xsd, *.jnlp, *.xml, *.xjb, *.wadl, *.plan, *.jrxml, *.fxml, *.wsdl, *.wsdd}]
+tab_width = 2
