@@ -120,6 +120,22 @@ object TestScalaCu2 {
   }
 }
 
+class ScalaAttr(@BeanProperty var name: String, @BeanProperty var age: Int, private var is: Boolean) {
+  def p: Unit = {
+    println(this.is)
+  }
+
+}
+
+object TestScalaAttr {
+  def main(args: Array[String]): Unit = {
+    var attr = new ScalaAttr("张三", 1, false)
+    println(attr.getAge)
+    println(attr.getName)
+    attr.p
+  }
+}
+
 
 // 继承
 class People(n: String) {
@@ -159,4 +175,129 @@ object TestExtends2 {
     println(woman.getName)
     println(woman.getAge)
   }
+}
+
+class ScalaClass2 {
+
+  /**
+   * 内部类
+   */
+  class InClass {
+    var i: Int = 10
+
+    def pr = {
+      println("内部类")
+    }
+  }
+
+  /**
+   * 通过函数将内部类构造
+   *
+   * @return
+   */
+  def inClass: InClass = {
+    new InClass
+  }
+
+}
+
+
+object TestScalaClass2 {
+  def main(args: Array[String]): Unit = {
+    var sc2 = new ScalaClass2
+    val clazz = sc2.inClass
+    val clazz1 = sc2.inClass
+    clazz.pr
+
+    val bool = clazz.equals(clazz1)
+    // false
+    println(bool)
+  }
+}
+
+// 伴生对象&伴生类
+/**
+ * 伴生类
+ */
+class CompanionClass {
+
+  var cs = CompanionClass.newCompanionClass
+  private var num = 0
+
+
+  def getCount = {
+    this.num = cs
+    this.num
+  }
+
+  def add(i: Int): Unit = {
+    num += i
+    println("增加后值=" + num)
+  }
+}
+
+/**
+ * 伴生对象
+ */
+object CompanionClass {
+  private var count = 0
+
+  def newCompanionClass = {
+    count += 1
+    count
+  }
+
+  def add(i: Int) {
+    this.count += i
+  }
+}
+
+object TestCompanion {
+  def main(args: Array[String]): Unit = {
+    var vc = new CompanionClass
+    println(vc.getCount)
+
+    vc.add(10)
+
+  }
+}
+
+
+// abs
+
+abstract class ScalaAbs {
+  def start()
+
+  def end()
+}
+
+class AbsExtend extends ScalaAbs {
+  override def start(): Unit = {
+    println("start")
+  }
+
+  override def end(): Unit = {
+    println("end")
+  }
+}
+
+object TestAbs {
+  def main(args: Array[String]): Unit = {
+    var a = new AbsExtend
+    a.start()
+    a.end()
+  }
+}
+
+// 枚举
+class Color extends Enumeration {
+  type Color = Value
+  val Red = Value("0")
+  val Green = Value("1")
+
+  override protected def readResolve(): AnyRef = super.readResolve()
+
+  override def toString(): String = super.toString()
+
+  override def values: ValueSet = super.values
 }
