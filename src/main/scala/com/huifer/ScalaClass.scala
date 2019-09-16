@@ -1,6 +1,7 @@
 package com.huifer
 
-import java.beans.BeanProperty
+
+import scala.beans.BeanProperty
 
 /**
  * Scala 的类不需要public
@@ -65,8 +66,97 @@ object TestScalaObj {
   }
 }
 
+/**
+ * 注解Bean
+ */
+class ScalaBean {
+  @BeanProperty var intVal: Int = 0
+}
 
-class ScalaBean{
-  @BeanProperty var intVal :Int = 0
+/**
+ * 构造器
+ *
+ * @param xx
+ */
+class ScalaCu1(xx: Int) {
+  var age = xx
+}
 
+class ScalaCu2 {
+  var age: Int = 0
+  var name: String = ""
+
+
+  def this(x: Int, n: String) {
+    this() // 代表的是主构造器.
+    this.age = x
+    this.name = n
+  }
+
+  def this(x: Int) {
+    this()
+    this.age = x
+  }
+
+  def this(n: String) {
+    this()
+    this.name = n
+  }
+
+
+  override def toString = s"ScalaCu2(age=$age, name=$name)"
+}
+
+object TestScalaCu2 {
+  def main(args: Array[String]): Unit = {
+    var sc2_1 = new ScalaCu2
+    println(sc2_1)
+    var sc2_2 = new ScalaCu2(1, "张三")
+    println(sc2_2)
+    var sc2_3 = new ScalaCu2(1)
+    println(sc2_3)
+    var sc2_4 = new ScalaCu2("张三")
+    println(sc2_4)
+  }
+}
+
+
+// 继承
+class People(n: String) {
+  @BeanProperty var name: String = n
+}
+
+class Man(n: String, i: Int) extends People(n) {
+  @BeanProperty var age = i
+}
+
+object TestExtends {
+  def main(args: Array[String]): Unit = {
+    var man = new Man("张三", 1)
+    println(man.getAge)
+    println(man.getName)
+  }
+}
+
+class People2 {
+  @BeanProperty var name = "默认值"
+
+  def this(n: String) {
+    this()
+    this.name = n
+  }
+}
+
+class WoMan(n: String, i: Int) extends People2 {
+  //  super.name = n
+  @BeanProperty var age = i
+
+}
+
+object TestExtends2 {
+  def main(args: Array[String]): Unit = {
+    var woman = new WoMan("张三", 1)
+    println(woman.getName)
+    println(woman.getAge)
+  }
 }
