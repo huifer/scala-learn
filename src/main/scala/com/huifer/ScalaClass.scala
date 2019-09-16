@@ -301,3 +301,46 @@ class Color extends Enumeration {
 
   override def values: ValueSet = super.values
 }
+
+// package
+package com {
+  package huifer {
+
+    object B {
+      var i = "B"
+      var a = com.huifer.other.A.b
+
+      def main(args: Array[String]): Unit = {
+        println(a)
+      }
+    }
+
+    package other {
+
+      object A {
+        var b = B.i
+
+        def main(args: Array[String]): Unit = {
+          println(b)
+        }
+      }
+
+    }
+
+  }
+
+}
+
+
+// package object
+
+package object People {
+  val defaultName = "张三"
+
+  class Lisi {
+    var name = defaultName
+  }
+
+
+}
+
