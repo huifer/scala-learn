@@ -347,7 +347,7 @@ class Color extends Enumeration {
 //
 
 
-@SerialVersionUID(1L)
-class p {
+@SerialVersionUID(234L)
+class p extends Serializable {
 
 }
