@@ -1,4 +1,4 @@
-package com.huifer
+package com.huifer.obj
 
 object operator {
   def main(args: Array[String]): Unit = {

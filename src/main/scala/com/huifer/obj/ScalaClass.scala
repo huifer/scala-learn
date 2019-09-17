@@ -1,5 +1,4 @@
-package com.huifer
-
+package com.huifer.obj
 
 import scala.beans.BeanProperty
 
@@ -347,7 +346,3 @@ class Color extends Enumeration {
 //
 
 
-@SerialVersionUID(234L)
-class p extends Serializable {
-
-}

@@ -1,4 +1,4 @@
-package com.huifer
+package com.huifer.obj
 
 trait log {
   def log(msg: String)
